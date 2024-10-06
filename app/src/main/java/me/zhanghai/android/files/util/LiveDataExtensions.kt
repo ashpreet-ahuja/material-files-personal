@@ -7,5 +7,6 @@ package me.zhanghai.android.files.util
 
 import androidx.lifecycle.LiveData
 
-val <T> LiveData<T>.valueCompat: T?
-    get() = value as? T
+@Suppress("UNCHECKED_CAST")
+val <T> LiveData<T>.valueCompat: T
+    get() = value as T
