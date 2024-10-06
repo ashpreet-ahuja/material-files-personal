@@ -26,8 +26,8 @@ apply plugin: 'com.google.firebase.crashlytics'
 
 android {
     namespace 'me.zhanghai.android.files'
-    buildToolsVersion = '35.0.0'
-    compileSdk 35
+    buildToolsVersion = '34.0.0'
+    compileSdk 34
     ndkVersion '27.1.12297006'
     defaultConfig {
         applicationId 'me.zhanghai.android.files'
@@ -57,11 +57,12 @@ android {
     }
     compileOptions {
         coreLibraryDesugaringEnabled true
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        //jvmTarget = JavaVersion.VERSION_1_8.toString()
+        jvmTarget = "17"
     }
     externalNativeBuild {
         cmake {
@@ -157,7 +158,7 @@ dependencies {
         // org.bouncycastle:bcprov-jdk15to18 instead.
         exclude group: 'org.bouncycastle', module: 'bcprov-jdk15on'
     }
-    def bouncy_castle_version = '1.78.1'
+    def bouncy_castle_version = '1.76'
     implementation "org.bouncycastle:bcprov-jdk15to18:$bouncy_castle_version"
     implementation ('com.hierynomus:sshj:0.39.0') {
         exclude group: 'org.bouncycastle', module: 'bcprov-jdk18on'
